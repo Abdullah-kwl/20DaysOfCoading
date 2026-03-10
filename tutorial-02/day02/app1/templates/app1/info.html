@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info</title>
+</head>
+<body>
+    <h1>Info Page</h1>
+    <p>This is the info page.</p>
+    {% if data %}
+        <h2>Data:</h2>
+        <ul>
+            <li>Name: {{ data.name }}</li>
+            <li>Version: {{ data.version }}</li>
+            <li>Release Date: {{ data.release_date }}</li>
+        </ul>
+    {% elif data_stu %}
+        <h2>Student Data:</h2>
+        <ul>
+            {% for key, student in data_stu.items %}
+                <li>Name: {{ student.name }}, Age: {{ student.age }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No data available.</p>  
+    {% endif %}
+</body>
+</html>
