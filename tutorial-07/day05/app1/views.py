@@ -25,4 +25,4 @@ def register(request):
 
 
 def success(request):
-    return HttpResponse("<h1>Profile created successfully!</h1>")
+    return render(request, 'app1/success.html')
