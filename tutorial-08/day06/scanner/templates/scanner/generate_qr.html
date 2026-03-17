@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate QR Code</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            font-weight: normal;
+            margin-bottom: 25px;
+            font-size: 15px;
+            color: #ddd;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            text-align: left;
+            margin: 10px 0 5px;
+            font-size: 14px;
+        }
+
+        input {
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input:focus {
+            box-shadow: 0 0 5px #00ffd5;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background: #00ffd5;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #00c9a7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Generate QR Code</h1>
+        </header>
+
+        <main>
+            <h4>Please generate your QR code to gain entry to the lab</h4>
+
+            <form action="#" method="post">
+                {% csrf_token %}
+
+                <label for="data">Name:</label>
+                <input type="text" id="data" name="data" placeholder="Enter your name" required>
+
+                <label for="num">Roll No:</label>
+                <input type="text" id="num" name="num" placeholder="Enter your roll number" required>
+
+                <button type="submit">Generate QR Code</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

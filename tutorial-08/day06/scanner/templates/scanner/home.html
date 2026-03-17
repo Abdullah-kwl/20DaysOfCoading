@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Tech Lab</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #01030d, #021b46);
+            color: #fff;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        header::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: #00ffd5;
+            margin: 30px auto 0;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to the High-Tech Computer Lab</h1>
+
+        <p>
+            Please generate your QR code to gain entry to the computer lab. Enter your name and roll number to create your QR code. Once generated, you can scan it to access the lab.
+            <br><br>
+            Each QR code provides one-time access only. This means you must generate a new QR code every time you wish to enter the lab. After a QR code has been scanned and used for entry, it becomes invalid.
+            <br><br>
+            Therefore, please ensure you create a new QR code for each visit.
+        </p>
+    </header>
+</body>
+</html>

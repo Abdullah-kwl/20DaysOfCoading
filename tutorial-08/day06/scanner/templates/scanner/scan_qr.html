@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan QR Code</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            font-weight: normal;
+            margin-bottom: 25px;
+            color: #ddd;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            border-radius: 6px;
+            background: #fff;
+            color: #000;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background: #00ffd5;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #00c9a7;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Scan QR Code</h1>
+        </header>
+
+        <main>
+            <h4>Please scan your QR code to enter the lab</h4>
+
+            <form action="#" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <input type="file" name="qr_code_image" accept="image/*" required>
+
+                <button type="submit">Scan QR Code</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
