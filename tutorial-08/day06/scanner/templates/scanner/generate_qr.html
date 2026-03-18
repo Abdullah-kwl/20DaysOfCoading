@@ -87,18 +87,30 @@
         <main>
             <h4>Please generate your QR code to gain entry to the lab</h4>
 
-            <form action="#" method="post">
+            <form action="{% url 'generate_qr' %}" method="post">
                 {% csrf_token %}
 
                 <label for="data">Name:</label>
-                <input type="text" id="data" name="data" placeholder="Enter your name" required>
+                <input type="text" id="data" name="data" placeholder="Enter your name" >
 
                 <label for="num">Roll No:</label>
-                <input type="text" id="num" name="num" placeholder="Enter your roll number" required>
+                <input type="text" id="num" name="num" placeholder="Enter your roll number" >
 
                 <button type="submit">Generate QR Code</button>
             </form>
         </main>
+        <div style="margin-top: 20px;">
+            {% if error %}
+                <p style="color: #ff4d4d; font-weight: bold;">
+                    {{ error }}
+                </p>
+            {% endif %}
+
+            {% if qr_img_url %}
+                <h4>Your QR Code:</h4>
+                <img src="{{ qr_img_url }}" alt="QR Code" style="margin-top: 10px; width: 200px; border-radius: 8px;">
+            {% endif %}
+        </div>
     </div>
 </body>
 </html>
