@@ -37,4 +37,26 @@ def generate_qr(request):
     return render(request, 'scanner/generate_qr.html')
 
 def scan_qr(request):
+    if request.method == 'POST':
+        qr_code_image = request.FILES.get('qr_code_image')
+        if not qr_code_image:
+            return render(request, 'scanner/scan_qr.html', context={'error': 'Please upload a QR code image.'})
+        try:
+            img = Image.open(qr_code_image)
+            decoded_data = decode(img)
+            if not decoded_data:
+                return render(request, 'scanner/scan_qr.html', context={'error': 'No QR code found in the image.'})
+            data = decoded_data[0].data.decode('utf-8').strip()
+            name, roll_num = data.split(' | ')
+            profile = Profile.objects.filter(name=name, roll_number=roll_num).first()
+            if profile:
+                profile.delete()  # Delete the profile after successful scan to prevent reuse
+                del_img_path = settings.MEDIA_ROOT / 'qr_codes' / f"{name}_{roll_num}.png"
+                if del_img_path.exists():
+                    del_img_path.unlink()  # Delete the QR code image after successful scan
+                return render(request, 'scanner/scan_qr.html', context={'success': f'Welcome {profile.name}! Your roll number is {profile.roll_number}.'})
+            else:
+                return render(request, 'scanner/scan_qr.html', context={'error': 'Profile not found. Please check your QR code or Creat Profile'})
+        except Exception as e:
+            return render(request, 'scanner/scan_qr.html', context={'error': f'Error processing the QR code: {str(e)}'})
     return render(request, 'scanner/scan_qr.html')
