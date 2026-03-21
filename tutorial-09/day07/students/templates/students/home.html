@@ -8,5 +8,19 @@
 <body>
     <h1>Home</h1>
     <p>Welcome to the student management system.</p>
+
+    {% if profiles %}
+        <ul>
+            {% for profile in profiles %}
+                <li>
+                    <a href="{% url 'profile' profile.roll_number %}">
+                        {{ profile.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% comment %} {% else %}
+        <p>No students found.</p> {% endcomment %}
+    {% endif %}
 </body>
 </html>
