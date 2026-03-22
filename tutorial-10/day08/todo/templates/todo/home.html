@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .content h2 {
+            color: #007bff;
+        }
+        .links a {
+            display: inline-block;
+            margin: 10px 15px 10px 0;
+            text-decoration: none;
+            color: white;
+            background: #28a745;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: 0.2s;
+        }
+        .links a:hover {
+            background: #218838;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TODO Management System</h1>
+    </header>
+    <div class="content">
+        <h2>Welcome!</h2>
+        <p>
+            This web application allows you to manage your tasks efficiently. You can create, update, and delete tasks, 
+            track their status, and organize your workflow effortlessly. Whether it's personal tasks, work projects, 
+            or study schedules, this app helps you stay on top of everything. With clear task statuses, quick editing, 
+            and deletion options, you’ll save time and reduce stress while staying productive.
+        </p>
+        <div class="links">
+            <a href="{% url 'all_tasks' %}">View All Tasks</a>
+            <a href="{% url 'add_task' %}">Add New Task</a>
+        </div>
+    </div>
+</body>
+</html>
