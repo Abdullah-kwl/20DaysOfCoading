@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Update Todo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: auto;
+            margin-top: 60px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-update {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-back {
+            background: #6c757d;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .btn-update:hover { background: #0069d9; }
+        .btn-back:hover { background: #5a6268; }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>✏️ Update Task</h1>
+
+    <div class="card">
+        <form action="/update/{{ todo.id }}" method="POST">
+            <label>Title:</label>
+            <input type="text" name="title" value="{{ todo.title }}" required>
+
+            <label>Description:</label>
+            <textarea name="desc" required>{{ todo.desc }}</textarea>
+
+            <button type="submit" class="btn-update">Update Task</button>
+        </form>
+
+        <div class="center">
+            <a href="/">
+                <button class="btn-back">⬅ Back to Home</button>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
