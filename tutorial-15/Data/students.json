@@ -1,0 +1,19 @@
+[
+  { "roll_number": "A26-101", "name": "Ali Khan", "age": 20, "city": "Multan" },
+  { "roll_number": "A26-102", "name": "Usman Tariq", "age": 22, "city": "Lahore" },
+  { "roll_number": "A26-103", "name": "Hassan Raza", "age": 19, "city": "Karachi" },
+  { "roll_number": "A26-104", "name": "Bilal Ahmed", "age": 17, "city": "Faisalabad" },
+  { "roll_number": "A26-105", "name": "Junior Saad", "age": 16, "city": "Multan" },
+
+  { "roll_number": "B26-201", "name": "Ahmed Ali", "age": 21, "city": "Islamabad" },
+  { "roll_number": "B26-202", "name": "Zain Malik", "age": 23, "city": "Rawalpindi" },
+  { "roll_number": "B26-203", "name": "Umer Farooq", "age": 18, "city": "Multan" },
+  { "roll_number": "B26-204", "name": "Junior Hamza", "age": 17, "city": "Sialkot" },
+  { "roll_number": "B26-205", "name": "Saad Hussain", "age": 20, "city": "Lahore" },
+
+  { "roll_number": "C26-301", "name": "Haris Ali", "age": 22, "city": "Karachi" },
+  { "roll_number": "C26-302", "name": "Talha Anwar", "age": 24, "city": "Multan" },
+  { "roll_number": "C26-303", "name": "Junior Zubair", "age": 16, "city": "Peshawar" },
+  { "roll_number": "C26-304", "name": "Imran Khan", "age": 19, "city": "Quetta" },
+  { "roll_number": "C26-305", "name": "Fahad Sheikh", "age": 21, "city": "Hyderabad" }
+]
