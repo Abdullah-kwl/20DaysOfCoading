@@ -1,4 +1,4 @@
-from config import secrets, config
+from utils.config import secrets, config
 import json
 
 data_path = secrets.data_path
@@ -15,7 +15,7 @@ def get_student_by_roll_number(roll_number: str, path: str = data_path):
     for student in students:
         if student["roll_number"] == roll_number:
             return student
-    return ValueError("Student with roll number {} not found".format(roll_number))
+    return None
 
 
 def add_new_student(student: dict, path: str = data_path):
@@ -25,17 +25,16 @@ def add_new_student(student: dict, path: str = data_path):
         json.dump(students, f, indent=4)
 
 
-def update_student_by_roll_number(roll_number: str, name: str, age: int, city: str, path: str = data_path):
+def update_student_by_roll_number(roll_number: str, updated_fields: dict, path: str = data_path):
     students = load_students(path)
     for student in students:
         if student["roll_number"] == roll_number:
-            student["name"] = name
-            student["age"] = age
-            student["city"] = city
+            # update only provided keys (work for both PUT and PATCH)
+            student.update(updated_fields)  
             with open(path, "w") as f:
                 json.dump(students, f, indent=4)
             return student
-    raise ValueError("Student with roll number {} not found".format(roll_number))
+    raise ValueError(f"Student with roll number {roll_number} not found")
 
 
 def delete_student_by_roll_number(roll_number: str, path: str = data_path):

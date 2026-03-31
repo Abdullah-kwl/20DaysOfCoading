@@ -6,7 +6,7 @@ class Student(BaseModel):
     roll_number : Annotated[str, Field(description="Student's roll number", example="A26-101")]
     name : Annotated[str, Field(description="Student's name, add Junior before name if age is less than 18", example="Ali Khan or Junior Ali")]
     age : Annotated[int, Field(description="Student's age", example=20)]
-    city : Annotated[Optional[str], Field(description="Student's city", example="Karachi")] = None
+    city : Annotated[str, Field(description="Student's city", example="Karachi")] 
 
     @field_validator('roll_number')
     def validate_roll_number(cls, value):
@@ -61,3 +61,8 @@ class Student(BaseModel):
         if match:
             return int(match.group(1))
         return None
+    
+class StudentUpdate(BaseModel):
+    name : Optional[Annotated[str, Field(description="Student's name, add Junior before name if age is less than 18", example="Ali Khan or Junior Ali")]] = None
+    age : Optional[Annotated[int, Field(description="Student's age", example=20)]] = None
+    city : Optional[Annotated[str, Field(description="Student's city", example="Karachi")]] = None

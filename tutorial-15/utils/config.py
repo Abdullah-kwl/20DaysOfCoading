@@ -5,6 +5,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Secrets(BaseSettings):
     data_path: str
 
+    # in .env please add DATA_PATH="data/students.json"
     model_config = SettingsConfigDict(
         env_file=".env",
         extra="ignore"
