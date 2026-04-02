@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi import FastAPI, Path, Query, Body
+from fastapi import FastAPI, Path, Query, Body, Depends
 from models.schemas import Student, StudentUpdate
 from utils.enums import SortField, Section, SortOrder
 from utils.utilities import (load_students, get_student_by_roll_number,
@@ -14,9 +14,9 @@ app = FastAPI()
 def get_all_students(
     sort_by: Optional[SortField] = Query(default=None, description="Sort by 'age' or 'name'"),
     order: SortOrder = Query(default=SortOrder.asc, description="Sorting order: 'asc' or 'desc'"),
-    section: Optional[Section] = Query(default=None, description="Filter by section: A, B, C")
+    section: Optional[Section] = Query(default=None, description="Filter by section: A, B, C"),
+    students: list[Student] = Depends(load_students)
 ):
-    students = load_students()
     # Filter by section
     if section:
         section_str = section.value.upper()
