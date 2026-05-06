@@ -1,2 +1,2 @@
 # 20DaysOfCoading
-starting habit of daily coding and learn Django 
+starting habit of daily coding and learn Django, Flask and FastAPI.
